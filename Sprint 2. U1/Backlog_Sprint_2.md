@@ -29,7 +29,7 @@ Im Fokus stehen die Implementierung von **Hin- und Rückfahrt** sowie **variable
  
  * Standard: **30 Sekunden**.
  * Hauptknoten (**Plärrer, Hauptbahnhof**): **60 Sekunden**.
- * Endhaltestellen (**Fürth Hardhöhe, Langwasser Süd**): **60 Sekunden**.
+ * Endhaltestellen (**Langwasser Süd, Fürth Hbf.**): **60 Sekunden**.
  
 ### 2. Betrieb & Takt
  
@@ -67,5 +67,5 @@ Ein Fahrgast möchte von **Langwasser Mitte** zur **Messe** und ist um **05:01 U
 * **Halt Gemeinschaftshaus:** +30 Sek (Abfahrt 05:03:30)
 * **Fahrt bis Langwasser Mitte:** +2 Min (Ankunft 05:05:30)
 * **Halt Langwasser Mitte:** +30 Sek (Abfahrt **05:06:00**)
-* **Ergebnis:** Das System hat **05:06 Uhr** als Ankunftszeit berechnet.
+* **Ergebnis:** Das System hat **05:06 Uhr** als Abfahrtszeit berechnet.
 
