@@ -9,3 +9,7 @@ __pycache__/
 .venv/
 venv/
 env/
+
+werkstat_1.py
+werkstat_2.py
+werkstat_3.py

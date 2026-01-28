@@ -2,26 +2,26 @@
 
 from datetime import datetime, date
 
-import Sprint_1_Adjazenzliste
-from Sprint_1_classe import Fahrplan
+import adjazenzliste
+from classe import Fahrplan
 
 
 def baue_fahrplan() -> Fahrplan:
     heute = date.today()
 
-    start = datetime.combine(heute, datetime.strptime(Sprint_1_Adjazenzliste.UHRZEITEN_BETRIEB_LINIE_TEST["start"], "%H:%M").time())
-    ende = datetime.combine(heute, datetime.strptime(Sprint_1_Adjazenzliste.UHRZEITEN_BETRIEB_LINIE_TEST["ende"], "%H:%M").time())
-    intervall = int(Sprint_1_Adjazenzliste.UHRZEITEN_BETRIEB_LINIE_TEST["intervall_minuten"])
+    start = datetime.combine(heute, datetime.strptime(adjazenzliste.UHRZEITEN_BETRIEB_LINIE_TEST["start"], "%H:%M").time())
+    ende = datetime.combine(heute, datetime.strptime(adjazenzliste.UHRZEITEN_BETRIEB_LINIE_TEST["ende"], "%H:%M").time())
+    intervall = int(adjazenzliste.UHRZEITEN_BETRIEB_LINIE_TEST["intervall_minuten"])
 
     return Fahrplan(
         startzeit=start,
         endzeit=ende,
         intervall=intervall,
-        stationen=Sprint_1_Adjazenzliste.STATIONEN
+        stationen=adjazenzliste.STATIONEN
     )
 
 def eingabe_station(alle_stationen: list[str]) -> str | None:
-    for _ in range(Sprint_1_Adjazenzliste.MAX_VERSUCHE):
+    for _ in range(adjazenzliste.MAX_VERSUCHE):
         s = input(f"Haltestelle eingeben {alle_stationen}: ").strip().upper()
         if s in alle_stationen:
             return s
@@ -30,7 +30,7 @@ def eingabe_station(alle_stationen: list[str]) -> str | None:
 
 
 def eingabe_zeit() -> str | None:
-    for _ in range(Sprint_1_Adjazenzliste.MAX_VERSUCHE):
+    for _ in range(adjazenzliste.MAX_VERSUCHE):
         t = input("Gewünschte Zeit eingeben (HH:MM), z.B. 05:08: ").strip()
         try:
             datetime.strptime(t, "%H:%M")
@@ -40,9 +40,9 @@ def eingabe_zeit() -> str | None:
     return None
 
 
-def main():
+if __name__ == "__main__":
     fahrplan = baue_fahrplan()
-    alle_stationen = sorted(list(Sprint_1_Adjazenzliste.STATIONEN.keys()))
+    alle_stationen = sorted(list(adjazenzliste.STATIONEN.keys()))
 
     print("\n--- U-Test Fahrplanauskunft (Sprint 1) ---")
     print("Strecke: A -> B (2min) -> C (3min) -> D (1min)")
@@ -51,12 +51,12 @@ def main():
     station = eingabe_station(alle_stationen)
     if station is None:
         print("Zu viele falsche Eingaben. Programm endet.")
-        return
+        #return
 
     zeit = eingabe_zeit()
     if zeit is None:
         print("Zu viele falsche Eingaben. Programm endet.")
-        return
+        #return
 
     naechste = fahrplan.naechste_abfahrt(station, zeit)
     if naechste is None:
@@ -65,5 +65,5 @@ def main():
         print(f"Die nächste Bahn fährt um {naechste.strftime('%H:%M')} Uhr an Station {station} ab.")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

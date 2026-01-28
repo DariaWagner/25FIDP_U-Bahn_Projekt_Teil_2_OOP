@@ -9,7 +9,7 @@ class Fahrplan {
   + berechne_fahrtzeit(start: str, ziel: str): int?
 }
 
-class main {
+ main {
   - alle_stationen: list
   - aktuelle_zeit: str
   - aktuelle_station: str
